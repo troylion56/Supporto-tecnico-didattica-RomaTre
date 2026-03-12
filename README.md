@@ -48,9 +48,9 @@ cd script_python
 python genera_qr.py
 ```
 
-Verrà creato il file `qrcode_formazione.png` all'interno di `script_python/` → stampalo e usalo!  
+Verrà creato il file `qrcode_formazione.png` → stampalo e usalo!  
 
-![QR Code generato](script_python/qrcode_formazione.png)
+![QR Code generato](qrcode_formazione.png)
 
 ---
 
