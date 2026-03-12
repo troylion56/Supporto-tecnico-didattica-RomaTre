@@ -1,69 +1,53 @@
-# App Formazione — QR Code + Video
+# Supporto tecnico didattica — RomaTre
 
 ## Struttura file
 
 ```
-app formazione/
-├── index.html         ← Pagina web con le opzioni video
+Supporto tecnico didattica-RomaTre/
+├── index.html         ← Pagina web con le card video
 ├── genera_qr.py       ← Script per generare il QR Code
 └── README.md          ← Questa guida
 ```
 
 ---
 
-## Passo 1 — Inserisci i tuoi video in index.html
+## Passo 1 — Inserisci i tuoi video Google Drive in index.html
 
-Apri `index.html` e trova questa sezione (circa a metà file):
+Apri `index.html` e trova questa sezione:
 
 ```js
 const videos = {
   prova1: {
     title: 'Prova 1',
-    youtubeId: 'VIDEO_ID_QUI'   // <-- metti qui l'ID del video YouTube
+    driveId: 'FILE_ID_QUI'   // <-- metti qui l'ID del file Google Drive
   },
   prova2: {
     title: 'Prova 2',
-    youtubeId: 'VIDEO_ID_QUI'   // <-- metti qui l'ID del video YouTube
+    driveId: 'FILE_ID_QUI'   // <-- metti qui l'ID del file Google Drive
   }
 };
 ```
 
-**Come trovare l'ID YouTube:**  
-Apri il video su YouTube → guarda l'URL:  
-`https://www.youtube.com/watch?v=` **`dQw4w9WgXcQ`**  
-La parte dopo `?v=` è l'ID (es. `dQw4w9WgXcQ`).
+**Come trovare l'ID Google Drive:**  
+Apri il video su Google Drive → guarda l'URL:  
+`https://drive.google.com/file/d/` **`1ABC123xyz`** `/view`  
+La parte tra `/d/` e `/view` è l'ID (es. `1ABC123xyz`).
+
+**Importante:** per ogni video vai su Google Drive → tasto destro → **Condividi** → **Chiunque abbia il link** (Visualizzatore).
 
 ---
 
-## Passo 2 — Pubblica su GitHub Pages (gratis)
+## Passo 2 — Genera il QR Code
 
-1. Crea un account su [github.com](https://github.com) (se non ce l'hai)
-2. Clicca **"New repository"** → dai un nome (es. `app-formazione`) → **Public** → **Create**
-3. Carica `index.html` nel repository (trascina il file nella pagina GitHub)
-4. Vai su **Settings → Pages** → Source: **Deploy from a branch** → Branch: `main` → **Save**
-5. Dopo 1-2 minuti il tuo sito sarà su:  
-   `https://TUONOME.github.io/app-formazione/`
+```powershell
+& ".venv\Scripts\python.exe" genera_qr.py
+```
 
----
-
-## Passo 3 — Genera il QR Code
-
-1. Apri `genera_qr.py`  
-2. Sostituisci l'URL con quello di GitHub Pages:
-   ```python
-   URL = "https://TUONOME.github.io/app-formazione/"
-   ```
-3. Esegui:
-   ```bash
-   python genera_qr.py
-   ```
-4. Verrà creato il file `qrcode_formazione.png` → stampalo e usalo!
+Verrà creato il file `qrcode_formazione.png` → stampalo e usalo!  
 
 ---
 
-## Aggiungere nuove opzioni in futuro
-
-Per aggiungere una terza opzione (es. "Prova 3"):
+## Aggiungere nuove card video in futuro
 
 1. In `index.html`, aggiungi una card nel `<div class="grid">`:
    ```html
@@ -77,7 +61,15 @@ Per aggiungere una terza opzione (es. "Prova 3"):
    ```js
    prova3: {
      title: 'Prova 3',
-     youtubeId: 'ID_DEL_VIDEO'
+     driveId: 'ID_DEL_FILE_DRIVE'
    }
    ```
-3. Carica di nuovo `index.html` su GitHub.
+3. Fai commit e push su GitHub.
+
+---
+
+## Note tecniche
+
+- I video vengono riprodotti tramite iframe con l'URL `https://drive.google.com/file/d/ID/preview`
+- Il QR code è generato con la libreria `qrcode` (moduli arrotondati, colore blu scuro)
+- Dipendenze Python: `qrcode[pil]`
