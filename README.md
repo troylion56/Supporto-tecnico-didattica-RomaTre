@@ -50,6 +50,8 @@ python genera_qr.py
 
 Verrà creato il file `qrcode_formazione.png` all'interno di `script_python/` → stampalo e usalo!  
 
+![QR Code generato](script_python/qrcode_formazione.png)
+
 ---
 
 ## Aggiungere nuove card video in futuro
