@@ -4,27 +4,28 @@
 
 ```
 Supporto tecnico didattica-RomaTre/
-├── index.html         ← Pagina web con le card video
-├── genera_qr.py       ← Script per generare il QR Code
-└── README.md          ← Questa guida
+├── sito/
+│   ├── index.html         ← Pagina web con le card video
+│   ├── script.js          ← File contenente gli ID dei video (JavaScript)
+│   └── style.css          ← Foglio di stile CSS
+├── script_python/
+│   └── genera_qr.py       ← Script per generare il QR Code
+└── README.md              ← Questa guida
 ```
 
 ---
 
-## Passo 1 — Inserisci i tuoi video Google Drive in index.html
+## Passo 1 — Inserisci i tuoi video Google Drive in sito/script.js
 
-Apri `index.html` e trova questa sezione:
+Apri il file `sito/script.js` e trova l'oggetto `videos`:
 
 ```js
 const videos = {
-  prova1: {
-    title: 'Prova 1',
-    driveId: 'FILE_ID_QUI'   // <-- metti qui l'ID del file Google Drive
+  SpigazioneRack: {
+    title: 'Spiegazione Rack',
+    driveId: '1DnjSaHFb66pRz6v_3JRNXFZnRKqob_ke'  // <-- metti qui l'ID
   },
-  prova2: {
-    title: 'Prova 2',
-    driveId: 'FILE_ID_QUI'   // <-- metti qui l'ID del file Google Drive
-  }
+  // ... altri video
 };
 ```
 
@@ -39,37 +40,42 @@ La parte tra `/d/` e `/view` è l'ID (es. `1ABC123xyz`).
 
 ## Passo 2 — Genera il QR Code
 
+Il QR Code punta alla cartella `sito/` su GitHub Pages, in modo da aprire correttamente l'interfaccia con i video invece di questo Readme.
+
+Apri il terminale, entra nella cartella Python ed esegui lo script:
 ```powershell
-& ".venv\Scripts\python.exe" genera_qr.py
+cd script_python
+python genera_qr.py
 ```
 
-Verrà creato il file `qrcode_formazione.png` → stampalo e usalo!  
+Verrà creato il file `qrcode_formazione.png` all'interno di `script_python/` → stampalo e usalo!  
 
 ---
 
 ## Aggiungere nuove card video in futuro
 
-1. In `index.html`, aggiungi una card nel `<div class="grid">`:
+1. In `sito/index.html`, aggiungi una nuova card nel `<div class="grid">`:
    ```html
-   <div class="card" onclick="openModal('prova3')">
+   <div class="card" onclick="openModal('nuovovideo')">
      <div class="icon">📹</div>
-     <h2>Prova 3</h2>
+     <h2>Nuovo Video</h2>
      <p>Clicca per guardare il video</p>
    </div>
    ```
-2. Aggiungi il video nell'oggetto `videos`:
+2. Aggiungi il video nell'oggetto `videos` dentro a `sito/script.js`:
    ```js
-   prova3: {
-     title: 'Prova 3',
+   nuovovideo: {
+     title: 'Nuovo Video',
      driveId: 'ID_DEL_FILE_DRIVE'
    }
    ```
-3. Fai commit e push su GitHub.
+3. Fai commit e push dei file modificati su GitHub.
 
 ---
 
 ## Note tecniche
 
+- L'URL generato nel QR Code deve terminare con `/sito/` (es: `https://troylion56.github.io/Supporto-tecnico-didattica-RomaTre/sito/`) affinché carichi direttamente `index.html`.
 - I video vengono riprodotti tramite iframe con l'URL `https://drive.google.com/file/d/ID/preview`
 - Il QR code è generato con la libreria `qrcode` (moduli arrotondati, colore blu scuro)
-- Dipendenze Python: `qrcode[pil]`
+- Dipendenze Python: `qrcode` e `pillow` (per installare: `pip install qrcode[pil]`)
