@@ -181,8 +181,8 @@
         <iframe
           id="yt-player"
           src=""
-          title="YouTube video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          title="Google Drive video"
+          allow="autoplay"
           allowfullscreen>
         </iframe>
       </div>
@@ -192,20 +192,21 @@
   <script>
     /*
      * ============================================================
-     *  CONFIGURA QUI I TUOI VIDEO YOUTUBE
-     *  Sostituisci "VIDEO_ID_QUI" con l'ID del tuo video YouTube.
-     *  Esempio: se il link è https://www.youtube.com/watch?v=dQw4w9WgXcQ
-     *  l'ID è: dQw4w9WgXcQ
+     *  CONFIGURA QUI I TUOI VIDEO GOOGLE DRIVE
+     *  Sostituisci "FILE_ID_QUI" con l'ID del file su Google Drive.
+     *  Esempio: se il link è https://drive.google.com/file/d/1ABC123xyz/view
+     *  l'ID è: 1ABC123xyz
+     *  Ricorda di impostare la condivisione su "Chiunque abbia il link".
      * ============================================================
      */
     const videos = {
       prova1: {
         title: 'Prova 1',
-        youtubeId: 'VIDEO_ID_QUI'   // <-- sostituisci con l'ID YouTube di Prova 1
+        driveId: '1YnODXjWegfLMek2WouMj_bUDGeXVHbyG'   // <-- sostituisci con l'ID Google Drive di Prova 1
       },
       prova2: {
         title: 'Prova 2',
-        youtubeId: 'VIDEO_ID_QUI'   // <-- sostituisci con l'ID YouTube di Prova 2
+        driveId: 'FILE_ID_QUI'   // <-- sostituisci con l'ID Google Drive di Prova 2
       }
     };
 
@@ -213,7 +214,7 @@
       const video = videos[key];
       document.getElementById('modal-title').textContent = video.title;
       document.getElementById('yt-player').src =
-        'https://www.youtube.com/embed/' + video.youtubeId + '?autoplay=1&rel=0';
+        'https://drive.google.com/file/d/' + video.driveId + '/preview';
       document.getElementById('modal').classList.add('active');
       document.body.style.overflow = 'hidden';
     }

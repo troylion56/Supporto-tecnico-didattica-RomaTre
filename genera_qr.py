@@ -16,7 +16,7 @@ from qrcode.image.styles.moduledrawers import RoundedModuleDrawer
 #  MODIFICA QUI IL TUO URL (dopo aver pubblicato su GitHub Pages)
 #  Esempio: "https://tuonome.github.io/app-formazione/"
 # ============================================================
-URL = "https://tuonome.github.io/app-formazione/"
+URL = "https://troylion56.github.io/Supporto-tecnico-didattica-RomaTre/"
 
 OUTPUT_FILE = "qrcode_formazione.png"
 
