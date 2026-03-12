@@ -7,62 +7,136 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <main class="page-shell">
+    <header>
+      <span class="eyebrow">Supporto tecnico didattica</span>
+      <h1>📚 Istruzioni Per La Strumentazione</h1>
+      <p>Trova rapidamente la guida che ti serve e apri il video con un clic.</p>
+    </header>
 
-  <header>
-    <h1>📚 Istruzioni Per La Strumentazione </h1>
-    <p>Seleziona un argomento per guardare il video</p>
-  </header>
+    <section class="search-section" aria-label="Ricerca istruzioni">
+      <div class="search-box">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          id="card-search"
+          class="search-input"
+          placeholder="Cerca rack, microfono, PC..."
+          aria-label="Cerca tra le card" />
+      </div>
+      <p id="results-count" class="results-count">7 guide disponibili</p>
+    </section>
 
-  <div class="grid">
+    <div class="grid">
     <!-- ===== CARD 1 ===== -->
-    <div class="card" onclick="openModal('SpigazioneRack')">
+    <div class="card" onclick="openModal('SpiegazioneAperturaChiusura')">
       <div class="icon">🎬</div>
-      <h2>Spiegazione Rack</h2>
+      <h2>Spiegazione Apertura e Chiusura</h2>
       <p>Clicca per guardare il video</p>
     </div>
 
     <!-- ===== CARD 2 ===== -->
-    <div class="card" onclick="openModal('SpiegazioneMicrofonoGelato')">
-      <div class="icon">🎤🍦</div>
-      <h2>Spiegazione Microfono Gelato</h2>
+    <div class="card" onclick="openModal('DisposizioneScrivania')">
+      <div class="icon">🎤</div>
+      <h2>Disposizione Scrivania</h2>
       <p>Clicca per guardare il video</p>
     </div>
 
     <!-- ===== CARD 3 ===== -->
-    <div class="card" onclick="openModal('SpiegazioneMicrofonoRode')">
+    <div class="card" onclick="openModal('Rack')">
       <div class="icon">🎥</div>
-      <h2>Spiegazione Microfono Rode</h2>
+      <h2>Rack</h2>
       <p>Clicca per guardare il video</p>
     </div>
 
     <!-- ===== CARD 4 ===== -->
-    <div class="card" onclick="openModal('SpiegazionePC')">
+    <div class="card" onclick="openModal('PCAula')">
       <div class="icon">💻</div>
-      <h2>Spiegazione PC</h2>
+      <h2>PC di aula</h2>
       <p>Clicca per guardare il video</p>
     </div>
 
     <!-- ===== CARD 5 ===== -->
-    <div class="card" onclick="openModal('DaModificare')">
+    <div class="card" onclick="openModal('KVM')">
       <div class="icon">🎥</div>
-      <h2>Da modificare</h2>
+      <h2>KVM</h2>
       <p>Clicca per guardare il video</p>
     </div>
 
     <!-- ===== CARD 6 ===== -->
-    <div class="card" onclick="openModal('ProblematicheComuni')">
+    <div class="card" onclick="openModal('RetroSmartHub')">
       <div class="icon">🛠️</div>
-      <h2>Problematiche Comuni</h2>
+      <h2>Retro dello SmartHub</h2>
       <p>Clicca per guardare il video</p>
     </div>
 
     <!-- ===== CARD 7 ===== -->
-    <div class="card" onclick="openModal('SpiegazioneAperturaCHiusura')">
+    <div class="card" onclick="openModal('SmartHubNonFunzionante')">
       <div class="icon">☀️ 🌝</div>
-      <h2>Spiegazione Apertura e Chiusura</h2>
+      <h2>SmartHub Non Funzionante</h2>
       <p>Clicca per guardare il video</p>
     </div>
-  </div>
+
+    <!-- ===== CARD 8 ===== -->
+    <div class="card" onclick="openModal('WebCamNonFunzionante')">
+      <div class="icon">🛠️</div>
+      <h2>WebCam Non Funzionante</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+
+    <!-- ===== CARD 9 ===== -->
+    <div class="card" onclick="openModal('MouseTastieraNonFunzioante')">
+      <div class="icon">🛠️</div>
+      <h2>Mouse e Tastiera Non Funzionanti</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+
+    <!-- ===== CARD 10 ===== -->
+    <div class="card" onclick="openModal('PulsanteBluNonFunzioante')">
+      <div class="icon">🛠️</div>
+      <h2>Pulsante Blu Non Funzionante</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+
+    <!-- ===== CARD 11 ===== -->
+    <div class="card" onclick="openModal('ProienzionePcProf')">
+      <div class="icon">🛠️</div>
+      <h2>PC Professore non proietta</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+
+     <!-- ===== CARD 12 ===== -->
+    <div class="card" onclick="openModal('MicrofonoGelato')">
+      <div class="icon">🛠️</div>
+      <h2>Microfono Gelato</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+
+    <!-- ===== CARD 13 ===== -->
+    <div class="card" onclick="openModal('MicrofonoRode')">
+      <div class="icon">🛠️</div>
+      <h2>Microfono Rode</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+
+    <!-- ===== CARD 14 ===== -->
+    <div class="card" onclick="openModal('AudioPCAulaNonFunzionante')">
+      <div class="icon">🛠️</div>
+      <h2>Audio PC di aula Non Funzionante</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+
+    <!-- ===== CARD 15 ===== -->
+    <div class="card" onclick="openModal('AudioPCCollegatoNonFunzionante')">
+      <div class="icon">🛠️</div>
+      <h2>Audio PC collegato Non Funzionante</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+
+    </div>
+
+    <p id="no-results" class="no-results" hidden>Nessuna card trovata per questa ricerca.</p>
+  </main>
 
   <!-- ===== MODAL ===== -->
   <div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">

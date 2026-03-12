@@ -7,35 +7,70 @@
  * ============================================================
  */
 const videos = {
-  SpigazioneRack: {
-    title: 'Spiegazione Rack',
-    driveId: '1DnjSaHFb66pRz6v_3JRNXFZnRKqob_ke'  
-  },
-  SpiegazioneMicrofonoGelato: {
-    title: 'Spiegazione Microfono Gelato',
-    driveId: '1PtwOwzMSP6cMP5sxUyCnqYbiXsxsIMN3'   
-  },
-  SpiegazioneMicrofonoRode: {
-    title: 'Spiegazione Microfono Rode',
-    driveId: '1yHA3yju5pQ-dx1biU0b59FABcKXdhhJr'   
-  },
-  SpiegazionePC: {
-    title: 'Spiegazione PC',
-    driveId: '1E3sPo-KLKFkAiRSywDTvW-SnLbjKOuow'   
-  },
-  DaModificare: {
-    title: 'Da modificare',
-    driveId: '1cvAmaojV1jsGHWGr33J9x8yo5IthljBe'   
-  },
-  ProblematicheComuni: {
-    title: 'Problematiche Comuni',
-    driveId: '10KxAvmrITAHyzWHiLzLYcvHuCrNSsJLP'   
-  }
-  ,
-  SpiegazioneAperturaCHiusura: {
+  SpiegazioneAperturaChiusura: {
     title: 'Spiegazione Apertura e Chiusura',
-    driveId: '1gZj2QOnrWiI4O-Xqn5DtpBvoOvOAXYeM'   
+    driveId: '1EeGNAHPkdqgylvHb4OxI4E0OaeogWCTn'  
+  },
+  DisposizioneScrivania: {
+    title: 'Disposizione Scrivania',
+    driveId: '11mZrwbDLOKrbwoyv4NtFK9vTQL0QbE95'   
+  },
+  Rack: {
+    title: 'Rack',
+    driveId: '1cJo5erQtOpxgEdi8a-3gp-uF6GoXpNlU'   
+  },
+  PCAula: {
+    title: 'PC di aula',
+    driveId: '1ZnR_mSeh6_gbcdE8oVIyflf0kVCgZX8P'   
+  },
+  KVM: {
+    title: 'KVM',
+    driveId: '19sB17kisRz2iZ-5nTR04QQdCgeic6iYv'   
+  },
+  RetroSmartHub: {
+    title: 'RetroSmartHub',
+    driveId: '16-o94QuNkMHXUBQXHtzA7K6q6bLrqghX'   
+  },
+  SmartHubNonFunzioante: {
+    title: 'SmartHub Non Funzionante',
+    driveId: '1mA7YknPU8NS8_XPXQ0yb-8vZQV45cT5T'   
+  },
+  WebCamNonFunzioante: {
+    title: 'WebCam Non Funzionante',
+    driveId: '1mA7YknPU8NS8_XPXQ0yb-8vZQV45cT5T'   
+  },
+  MouseTastieraNonFunzioante: {
+    title: 'Mouse e Tastiera Non Funzionanti',
+    driveId: '1chc9zI_qcRMMNsgDyrj0XQ0GuohZFwk2'   
+  },
+  PulsanteBluNonFunzioante: {
+    title: 'Pulsante Blu Non Funzionante',
+    driveId: '1bf39t9oduUoSFDtZwa3XJleBHtyoO4el'   
+  },
+  ProienzionePcProf: {
+    title: 'Proiezione PC Professore',
+    driveId: '1Rm1XEhJXF-WZd871WLpd-YWjrbXFUPv9'   
+  },
+  MicrofonoGelato: {
+    title: 'Microfono Gelato',
+    driveId: '1ooxdE5EQsD_FFocvMPo8L1uowigt_6tG'   
+  },
+  MicrofonoRode: {
+    title: 'Microfono Rode',
+    driveId: '1ol-NVtO-blFT4nnUysyt6IZaZmWMHNtF'   
+  },
+  AudioPCAulaNonFunzionante: {
+    title: 'Audio PC di aula Non Funzionante',
+    driveId: '1ymNc5vSsHuCVUCnu5lqeyVZ-tC28VfxU'   
+  },
+  AudioPCACollegatoNonFunzionante: {
+    title: 'Audio PC collegato Non Funzionante',
+    driveId: '1ymNc5vSsHuCVUCnu5lqeyVZ-tC28VfxU'   
   }
+
+
+
+  
 };
 
 function openModal(key) {
@@ -57,6 +92,47 @@ function handleOverlayClick(e) {
   if (e.target === document.getElementById('modal')) {
     closeModal();
   }
+}
+
+function normalizeText(value) {
+  return value
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+}
+
+function filterCards(query) {
+  const normalizedQuery = normalizeText(query.trim());
+  const cards = document.querySelectorAll('.card');
+  let visibleCards = 0;
+
+  cards.forEach(function (card) {
+    const cardText = normalizeText(card.textContent);
+    const isVisible = normalizedQuery === '' || cardText.includes(normalizedQuery);
+
+    card.classList.toggle('hidden', !isVisible);
+    if (isVisible) {
+      visibleCards += 1;
+    }
+  });
+
+  document.getElementById('no-results').hidden = visibleCards !== 0;
+
+  const resultsCount = document.getElementById('results-count');
+  if (resultsCount) {
+    resultsCount.textContent =
+      visibleCards === cards.length
+        ? visibleCards + ' guide disponibili'
+        : visibleCards + ' risultati trovati';
+  }
+}
+
+const searchInput = document.getElementById('card-search');
+
+if (searchInput) {
+  searchInput.addEventListener('input', function (event) {
+    filterCards(event.target.value);
+  });
 }
 
 // Chiudi con tasto ESC
