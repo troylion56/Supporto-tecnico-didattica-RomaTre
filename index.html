@@ -170,6 +170,46 @@
     </div>
   </div>
 
+  <!-- ===== CARD 3 ===== -->
+    <div class="card" onclick="openModal('SpiegazioneMicrofonoRode')">
+      <div class="icon">🎥</div>
+      <h2>Spiegazione Microfono Rode</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+  </div>
+
+  <!-- ===== CARD 4 ===== -->
+    <div class="card" onclick="openModal('SpiegazionePC')">
+      <div class="icon">🎥</div>
+      <h2>Spiegazione PC</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+  </div>
+
+  <!-- ===== CARD 5 ===== -->
+    <div class="card" onclick="openModal('DaModificare')">
+      <div class="icon">🎥</div>
+      <h2>Da modificare</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+  </div>
+
+  <!-- ===== CARD 6 ===== -->
+    <div class="card" onclick="openModal('ProblematicheComuni')">
+      <div class="icon">🎥</div>
+      <h2>Problematiche Comuni</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+  </div>
+
+  <!-- ===== CARD 7 ===== -->
+    <div class="card" onclick="openModal('SpiegazioneAperturaCHiusura')">
+      <div class="icon">🎥</div>
+      <h2>Spiegazione Apertura e Chiusura</h2>
+      <p>Clicca per guardare il video</p>
+    </div>
+  </div>
+
   <!-- ===== MODAL ===== -->
   <div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
     <div class="modal">
@@ -201,11 +241,32 @@
     const videos = {
       SpigazioneRack: {
         title: 'Spiegazione Rack',
-        driveId: '1DnjSaHFb66pRz6v_3JRNXFZnRKqob_ke'   // <-- sostituisci con l'ID Google Drive di Prova 1
+        driveId: '1DnjSaHFb66pRz6v_3JRNXFZnRKqob_ke'  
       },
       SpiegazioneMicrofonoGelato: {
         title: 'Spiegazione Microfono Gelato',
-        driveId: '1PtwOwzMSP6cMP5sxUyCnqYbiXsxsIMN3'   // <-- sostituisci con l'ID Google Drive di Prova 2
+        driveId: '1PtwOwzMSP6cMP5sxUyCnqYbiXsxsIMN3'   
+      },
+      SpiegazioneMicrofonoRode: {
+        title: 'Spiegazione Microfono Rode',
+        driveId: '1yHA3yju5pQ-dx1biU0b59FABcKXdhhJr'   
+      },
+      SpiegazionePC: {
+        title: 'Spiegazione PC',
+        driveId: '1E3sPo-KLKFkAiRSywDTvW-SnLbjKOuow'   
+      },
+      DaModificare: {
+        title: 'Da modificare',
+        driveId: '1cvAmaojV1jsGHWGr33J9x8yo5IthljBe'   
+      },
+      ProblematicheComuni: {
+        title: 'Problematiche Comuni',
+        driveId: '10KxAvmrITAHyzWHiLzLYcvHuCrNSsJLP'   
+      }
+      ,
+      SpiegazioneAperturaCHiusura: {
+        title: 'Spiegazione Apertura e Chiusura',
+        driveId: '1gZj2QOnrWiI4O-Xqn5DtpBvoOvOAXYeM'   
       }
     };
 
