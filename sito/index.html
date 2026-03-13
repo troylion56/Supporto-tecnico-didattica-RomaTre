@@ -32,17 +32,23 @@
 
     <div class="grid">
     <!-- ===== CARD 1 ===== -->
-    <div class="card" onclick="openModal('SpiegazioneAperturaChiusura')">
+    <div class="card card-one" onclick="openModal('SpiegazioneAperturaChiusura')">
       <div class="icon">🎬</div>
       <h2>Spiegazione Apertura e Chiusura</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-list">
+        <li>🎤 Gestione microfoni: controllo di microfono da tavolo, RODE e gelato</li>
+        <li>📽️ Proiettore: verificare che il segnale video sia visibile</li>
+        <li>🔊 Test audio PC: verificare che l'audio del computer sia udibile in aula</li>
+        <li>🔘 Verifica switch: controllare che il KVM cambi correttamente sorgente</li>
+        <li>📞 Test chiamata: effettuare la chiamata ad amede_numeroaula per verifica audio bidirezionale</li>
+      </ul>
     </div>
 
     <!-- ===== CARD 2 ===== -->
     <div class="card card-two" onclick="openModal('DisposizioneScrivania')">
       <div class="icon">🎤</div>
       <h2>Disposizione Scrivania</h2>
-      <ul class="card-two-list">
+      <ul class="card-list">
         <li>🎙️ Microfono e mouse</li>
         <li>⌨️ Tastiera e tavoletta Wacom</li>
         <li>🔌 SmartHub e dock (collegamenti USB e HDMI)</li>
@@ -54,7 +60,7 @@
     <div class="card card-three" onclick="openModal('Rack')">
       <div class="icon">🎥</div>
       <h2>Rack</h2>
-      <ul class="card-three-list">
+      <ul class="card-list">
         <li>⚡ Interruttore generale: accensione principale del sistema</li>
         <li>🔊 Amplificatore: funzioni e regolazione delle manopole</li>
         <li>🎙️ Ricevitori wireless: Shure BLX e microfoni RODE</li>
@@ -67,7 +73,7 @@
     <div class="card card-four" onclick="openModal('PCAula')">
       <div class="icon">💻</div>
       <h2>PC di aula</h2>
-      <ul class="card-four-list">
+      <ul class="card-list">
         <li>💾 Porta USB: dove collegare la pennetta se la dock non risponde</li>
         <li>🌐 Cavo Ethernet: connessione internet (retro PC)</li>
         <li>📺 Cavo HDMI: collegamento video (retro PC)</li>
@@ -80,7 +86,7 @@
     <div class="card card-five" onclick="openModal('KVM')">
       <div class="icon">🎥</div>
       <h2>KVM</h2>
-      <ul class="card-five-list">
+      <ul class="card-list">
         <li>🖥️ Ingresso video: HDMI singolo per la sorgente</li>
         <li>📺 Uscite video: doppia uscita HDMI </li>
         <li>🖱️ Periferiche USB: collegamento mouse e tastiera</li>
@@ -93,7 +99,7 @@
     <div class="card card-six" onclick="openModal('RetroSmartHub')">
       <div class="icon">🛠️</div>
       <h2>Retro dello SmartHub</h2>
-      <ul class="card-six-list">
+      <ul class="card-list">
         <li>📽️ Cavo proiettore: HDMI output</li>
         <li>✍️ Cavo Wacom: HDMI output</li>
         <li>⚡ Alimentazione: cavo di corrente principale</li>
@@ -108,63 +114,84 @@
     <div class="card" onclick="openModal('SmartHubNonFunzionante')">
       <div class="icon">☀️ 🌝</div>
       <h2>SmartHub Non Funzionante</h2>
-      <p>Clicca per guardare il video</p>
+      <p>Aprire il retro e controllare che i cavi siano ben attaccati </p>
     </div>
 
     <!-- ===== CARD 8 ===== -->
-    <div class="card" onclick="openModal('WebCamNonFunzionante')">
+    <div class="card card-eight" onclick="openModal('WebCamNonFunzionante')">
       <div class="icon">🛠️</div>
       <h2>WebCam Non Funzionante</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-list">
+        <li>🔌 Cavo USB/Ethernet: controllare la connessione dietro lo SmartHub</li>
+        <li>⚡ Interruttore rack: spegnere e riaccendere l'interruttore generale</li>
+        <li>🔇 Reset totale: togliere corrente all'aula per un riavvio completo</li>
+      </ul>
     </div>
 
     <!-- ===== CARD 9 ===== -->
-    <div class="card" onclick="openModal('MouseTastieraNonFunzioante')">
+    <div class="card card-nine" onclick="openModal('MouseTastieraNonFunzionante')">
       <div class="icon">🛠️</div>
       <h2>Mouse e Tastiera Non Funzionanti</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-list">
+        <li>🔌 KVM: staccare e riattaccare i cavi USB del KVM</li>
+        <li>🖥️ PC di aula: scollegare e ricollegare il cavo USB sul retro (dentro il rack)</li>
+      </ul>
     </div>
 
     <!-- ===== CARD 10 ===== -->
-    <div class="card" onclick="openModal('PulsanteBluNonFunzioante')">
+    <div class="card card-ten" onclick="openModal('PulsanteBluNonFunzionante')">
       <div class="icon">🛠️</div>
       <h2>Pulsante Blu Non Funzionante</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-list">
+        <li>🔘 Pulsante di switch: nell'angolo del KVM, cliccare per cambiare sorgente</li>
+        <li>🟢 LED di stato: indica quale dispositivo e attivo</li>
+        <li>PC 1: PC di aula</li>
+        <li>PC 2: PC collegato tramite HDMI della dock</li>
+      </ul>
     </div>
 
     <!-- ===== CARD 11 ===== -->
-    <div class="card" onclick="openModal('ProienzionePcProf')">
+    <div class="card card-eleven" onclick="openModal('ProienzionePcProf')">
       <div class="icon">🛠️</div>
       <h2>PC Professore non proietta</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-list">
+        <li>🖥️ Windows: verificare che sia attivo "Duplica schermo" (Win + P)</li>
+        <li>🍏 Mac: attivare la duplicazione con Cmd + F1 (oppure Cmd + Diminuisci luminosita)</li>
+        <li>🔘 Switch KVM: verificare che il LED sia su PC 2 (sorgente esterna tramite dock)</li>
+      </ul>
     </div>
 
      <!-- ===== CARD 12 ===== -->
     <div class="card" onclick="openModal('MicrofonoGelato')">
       <div class="icon">🛠️</div>
       <h2>Microfono Gelato</h2>
-      <p>Clicca per guardare il video</p>
+      <p>📡 Channel & Group: Verificare che il canale e il gruppo sul microfono e trasmettitore shire corrispondano.</p>
     </div>
 
     <!-- ===== CARD 13 ===== -->
-    <div class="card" onclick="openModal('MicrofonoRode')">
+    <div class="card card-thirteen" onclick="openModal('MicrofonoRode')">
       <div class="icon">🛠️</div>
       <h2>Microfono Rode</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-list">
+        <li>🔗 Connessione: verificare che il microfono sia sincronizzato al ricevitore</li>
+        <li>🔇 Stato muto: accertarsi che il microfono non sia in mute</li>
+        <li>🎤 Sorgente audio: verificare che il professore usi il microfono e non il ricevitore</li>
+        <li>🔌 Jack audio/USB: controllare che il ricevitore sia collegato correttamente</li>
+      </ul>
     </div>
 
     <!-- ===== CARD 14 ===== -->
     <div class="card" onclick="openModal('AudioPCAulaNonFunzionante')">
       <div class="icon">🛠️</div>
       <h2>Audio PC di aula Non Funzionante</h2>
-      <p>Clicca per guardare il video</p>
+      <p>🔉 Output di Sistema: Assicurarsi che nelle impostazioni audio del computer (Windows o Mac) sia selezionata l'uscita "ThinkSmart".</p>
     </div>
 
     <!-- ===== CARD 15 ===== -->
     <div class="card" onclick="openModal('AudioPCCollegatoNonFunzionante')">
       <div class="icon">🛠️</div>
       <h2>Audio PC collegato Non Funzionante</h2>
-      <p>Clicca per guardare il video</p>
+      <p>🔉 Output di Sistema: Assicurarsi che nelle impostazioni audio del computer (Windows o Mac) sia selezionata l'uscita "ThinkSmart".</p>
     </div>
 
     </div>

@@ -31,19 +31,19 @@ const videos = {
     title: 'RetroSmartHub',
     driveId: '16-o94QuNkMHXUBQXHtzA7K6q6bLrqghX'   
   },
-  SmartHubNonFunzioante: {
+  SmartHubNonFunzionante: {
     title: 'SmartHub Non Funzionante',
     driveId: '1mA7YknPU8NS8_XPXQ0yb-8vZQV45cT5T'   
   },
-  WebCamNonFunzioante: {
+  WebCamNonFunzionante: {
     title: 'WebCam Non Funzionante',
-    driveId: '1mA7YknPU8NS8_XPXQ0yb-8vZQV45cT5T'   
+    driveId: '16dhkd2RoVXCp6__mtU9FjMN6UbVwtdw6'   
   },
-  MouseTastieraNonFunzioante: {
+  MouseTastieraNonFunzionante: {
     title: 'Mouse e Tastiera Non Funzionanti',
     driveId: '1chc9zI_qcRMMNsgDyrj0XQ0GuohZFwk2'   
   },
-  PulsanteBluNonFunzioante: {
+  PulsanteBluNonFunzionante: {
     title: 'Pulsante Blu Non Funzionante',
     driveId: '1bf39t9oduUoSFDtZwa3XJleBHtyoO4el'   
   },
@@ -63,14 +63,10 @@ const videos = {
     title: 'Audio PC di aula Non Funzionante',
     driveId: '1ymNc5vSsHuCVUCnu5lqeyVZ-tC28VfxU'   
   },
-  AudioPCACollegatoNonFunzionante: {
+  AudioPCCollegatoNonFunzionante: {
     title: 'Audio PC collegato Non Funzionante',
     driveId: '1ymNc5vSsHuCVUCnu5lqeyVZ-tC28VfxU'   
   }
-
-
-
-  
 };
 
 const themeToggleButton = document.getElementById('theme-toggle');
@@ -117,6 +113,10 @@ if (themeToggleButton) {
 
 function openModal(key) {
   const video = videos[key];
+  if (!video) {
+    console.error('Video non trovato per la chiave:', key);
+    return;
+  }
   document.getElementById('modal-title').textContent = video.title;
   document.getElementById('yt-player').src =
     'https://drive.google.com/file/d/' + video.driveId + '/preview';
