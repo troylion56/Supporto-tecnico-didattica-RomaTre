@@ -3,15 +3,67 @@
 :root {
   --bg: #f5efe4;
   --bg-accent: #efe5d2;
+  --bg-radial-1: rgba(217, 119, 6, 0.2);
+  --bg-radial-2: rgba(180, 83, 9, 0.16);
+  --orb-1: rgba(251, 191, 36, 0.18);
+  --orb-2: rgba(249, 115, 22, 0.14);
   --panel: rgba(255, 251, 245, 0.78);
   --panel-border: rgba(123, 92, 54, 0.12);
   --card: rgba(255, 255, 255, 0.86);
+  --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 248, 240, 0.92) 100%);
+  --card-border: rgba(123, 92, 54, 0.12);
   --text: #1f2937;
   --muted: #6b7280;
   --accent: #d97706;
   --accent-dark: #9a3412;
   --accent-soft: rgba(217, 119, 6, 0.12);
+  --eyebrow-bg: rgba(255, 255, 255, 0.75);
+  --eyebrow-border: rgba(217, 119, 6, 0.18);
+  --search-border: rgba(123, 92, 54, 0.15);
+  --search-bg: rgba(255, 255, 255, 0.86);
+  --search-shadow: 0 14px 35px rgba(99, 72, 38, 0.08);
+  --search-focus-shadow: 0 0 0 5px rgba(217, 119, 6, 0.12), 0 16px 40px rgba(99, 72, 38, 0.14);
+  --placeholder: #9ca3af;
+  --no-results-bg: rgba(255, 255, 255, 0.7);
+  --no-results-border: rgba(123, 92, 54, 0.22);
+  --no-results-text: #475569;
+  --toggle-bg: rgba(255, 255, 255, 0.84);
+  --toggle-border: rgba(217, 119, 6, 0.2);
+  --toggle-text: #7c2d12;
   --shadow: 0 24px 60px rgba(79, 55, 26, 0.14);
+}
+
+body[data-theme='dark'] {
+  --bg: #0f172a;
+  --bg-accent: #111827;
+  --bg-radial-1: rgba(56, 189, 248, 0.22);
+  --bg-radial-2: rgba(14, 165, 233, 0.18);
+  --orb-1: rgba(34, 211, 238, 0.2);
+  --orb-2: rgba(59, 130, 246, 0.18);
+  --panel: rgba(15, 23, 42, 0.82);
+  --panel-border: rgba(148, 163, 184, 0.2);
+  --card: rgba(15, 23, 42, 0.75);
+  --card-gradient: linear-gradient(180deg, rgba(30, 41, 59, 0.95) 0%, rgba(17, 24, 39, 0.92) 100%);
+  --card-border: rgba(148, 163, 184, 0.24);
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #bae6fd;
+  --accent-soft: rgba(56, 189, 248, 0.2);
+  --eyebrow-bg: rgba(30, 41, 59, 0.7);
+  --eyebrow-border: rgba(56, 189, 248, 0.35);
+  --search-border: rgba(148, 163, 184, 0.26);
+  --search-bg: rgba(30, 41, 59, 0.8);
+  --search-shadow: 0 14px 35px rgba(2, 6, 23, 0.45);
+  --search-focus-shadow: 0 0 0 5px rgba(56, 189, 248, 0.2), 0 16px 40px rgba(2, 6, 23, 0.55);
+  --placeholder: #94a3b8;
+  --no-results-bg: rgba(30, 41, 59, 0.7);
+  --no-results-border: rgba(148, 163, 184, 0.32);
+  --no-results-text: #cbd5e1;
+  --toggle-bg: rgba(30, 41, 59, 0.82);
+  --toggle-border: rgba(56, 189, 248, 0.35);
+  --toggle-text: #e0f2fe;
+  --shadow: 0 24px 60px rgba(2, 6, 23, 0.55);
 }
 
 * {
@@ -23,8 +75,8 @@
 body {
   font-family: 'Manrope', sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(217, 119, 6, 0.2), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(180, 83, 9, 0.16), transparent 28%),
+    radial-gradient(circle at top left, var(--bg-radial-1), transparent 30%),
+    radial-gradient(circle at bottom right, var(--bg-radial-2), transparent 28%),
     linear-gradient(135deg, var(--bg) 0%, var(--bg-accent) 100%);
   min-height: 100vh;
   display: flex;
@@ -49,13 +101,13 @@ body::after {
 body::before {
   top: 60px;
   left: -80px;
-  background: rgba(251, 191, 36, 0.18);
+  background: var(--orb-1);
 }
 
 body::after {
   right: -80px;
   bottom: 40px;
-  background: rgba(249, 115, 22, 0.14);
+  background: var(--orb-2);
 }
 
 .page-shell {
@@ -73,6 +125,33 @@ header {
   margin-bottom: 32px;
 }
 
+.theme-toggle {
+  margin: 0 auto 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--toggle-border);
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  font-size: 0.88rem;
+  font-family: inherit;
+  font-weight: 700;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.16);
+}
+
+.theme-toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -80,8 +159,8 @@ header {
   margin-bottom: 16px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(217, 119, 6, 0.18);
+  background: var(--eyebrow-bg);
+  border: 1px solid var(--eyebrow-border);
   color: var(--accent-dark);
   font-size: 0.82rem;
   font-weight: 700;
@@ -128,13 +207,13 @@ header p {
 .search-input {
   width: 100%;
   padding: 18px 20px 18px 52px;
-  border: 1px solid rgba(123, 92, 54, 0.15);
+  border: 1px solid var(--search-border);
   border-radius: 20px;
   font-size: 1rem;
   font-family: inherit;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--search-bg);
   color: var(--text);
-  box-shadow: 0 14px 35px rgba(99, 72, 38, 0.08);
+  box-shadow: var(--search-shadow);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -142,11 +221,11 @@ header p {
   outline: none;
   transform: translateY(-1px);
   border-color: rgba(217, 119, 6, 0.45);
-  box-shadow: 0 0 0 5px rgba(217, 119, 6, 0.12), 0 16px 40px rgba(99, 72, 38, 0.14);
+  box-shadow: var(--search-focus-shadow);
 }
 
 .search-input::placeholder {
-  color: #9ca3af;
+  color: var(--placeholder);
 }
 
 .results-count {
@@ -167,14 +246,14 @@ header p {
 .card {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 248, 240, 0.92) 100%);
+  background: var(--card-gradient);
   border-radius: 24px;
   padding: 28px 24px;
   text-align: left;
   cursor: pointer;
   box-shadow: 0 14px 30px rgba(79, 55, 26, 0.08);
   transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
-  border: 1px solid rgba(123, 92, 54, 0.12);
+  border: 1px solid var(--card-border);
 }
 
 .card::before {
@@ -222,6 +301,61 @@ header p {
   line-height: 1.55;
 }
 
+.card-two-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.card-three-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.card-four-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.card-five-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.card-six-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
 .card.hidden {
   display: none;
 }
@@ -245,9 +379,9 @@ header p {
   margin-top: 24px;
   padding: 18px 20px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px dashed rgba(123, 92, 54, 0.22);
-  color: #475569;
+  background: var(--no-results-bg);
+  border: 1px dashed var(--no-results-border);
+  color: var(--no-results-text);
   font-size: 1rem;
   text-align: center;
 }

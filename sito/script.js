@@ -73,6 +73,48 @@ const videos = {
   
 };
 
+const themeToggleButton = document.getElementById('theme-toggle');
+const themeStorageKey = 'supporto-theme';
+
+function updateThemeButton(theme) {
+  if (!themeToggleButton) {
+    return;
+  }
+
+  const darkModeEnabled = theme === 'dark';
+  themeToggleButton.textContent = darkModeEnabled ? 'Modalita chiara' : 'Modalita scura';
+  themeToggleButton.setAttribute(
+    'aria-label',
+    darkModeEnabled ? 'Attiva modalita chiara' : 'Attiva modalita scura'
+  );
+}
+
+function applyTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  updateThemeButton(theme);
+}
+
+function getPreferredTheme() {
+  const storedTheme = localStorage.getItem(themeStorageKey);
+  if (storedTheme === 'dark' || storedTheme === 'light') {
+    return storedTheme;
+  }
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+applyTheme(getPreferredTheme());
+
+if (themeToggleButton) {
+  themeToggleButton.addEventListener('click', function () {
+    const currentTheme = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    applyTheme(nextTheme);
+    localStorage.setItem(themeStorageKey, nextTheme);
+  });
+}
+
 function openModal(key) {
   const video = videos[key];
   document.getElementById('modal-title').textContent = video.title;

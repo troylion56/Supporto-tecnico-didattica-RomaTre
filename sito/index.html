@@ -10,6 +10,9 @@
   <main class="page-shell">
     <header>
       <span class="eyebrow">Supporto tecnico didattica</span>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Attiva modalita scura">
+        Modalita scura
+      </button>
       <h1>📚 Istruzioni Per La Strumentazione</h1>
       <p>Trova rapidamente la guida che ti serve e apri il video con un clic.</p>
     </header>
@@ -24,7 +27,7 @@
           placeholder="Cerca rack, microfono, PC..."
           aria-label="Cerca tra le card" />
       </div>
-      <p id="results-count" class="results-count">7 guide disponibili</p>
+      <p id="results-count" class="results-count">15 guide disponibili</p>
     </section>
 
     <div class="grid">
@@ -36,38 +39,69 @@
     </div>
 
     <!-- ===== CARD 2 ===== -->
-    <div class="card" onclick="openModal('DisposizioneScrivania')">
+    <div class="card card-two" onclick="openModal('DisposizioneScrivania')">
       <div class="icon">🎤</div>
       <h2>Disposizione Scrivania</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-two-list">
+        <li>🎙️ Microfono e mouse</li>
+        <li>⌨️ Tastiera e tavoletta Wacom</li>
+        <li>🔌 SmartHub e dock (collegamenti USB e HDMI)</li>
+        <li>🔵 Pulsante blu: come attivarlo</li>
+      </ul>
     </div>
 
     <!-- ===== CARD 3 ===== -->
-    <div class="card" onclick="openModal('Rack')">
+    <div class="card card-three" onclick="openModal('Rack')">
       <div class="icon">🎥</div>
       <h2>Rack</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-three-list">
+        <li>⚡ Interruttore generale: accensione principale del sistema</li>
+        <li>🔊 Amplificatore: funzioni e regolazione delle manopole</li>
+        <li>🎙️ Ricevitori wireless: Shure BLX e microfoni RODE</li>
+        <li>🖥️ PC di aula: posizionamento</li>
+        <li>🌐 Ruckus: connettivita di rete</li>
+      </ul>
     </div>
 
     <!-- ===== CARD 4 ===== -->
-    <div class="card" onclick="openModal('PCAula')">
+    <div class="card card-four" onclick="openModal('PCAula')">
       <div class="icon">💻</div>
       <h2>PC di aula</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-four-list">
+        <li>💾 Porta USB: dove collegare la pennetta se la dock non risponde</li>
+        <li>🌐 Cavo Ethernet: connessione internet (retro PC)</li>
+        <li>📺 Cavo HDMI: collegamento video (retro PC)</li>
+        <li>⌨️ Input USB: mouse e tastiera (retro PC)</li>
+        <li>🔌 Alimentazione: cavo di corrente</li>
+      </ul>
     </div>
 
     <!-- ===== CARD 5 ===== -->
-    <div class="card" onclick="openModal('KVM')">
+    <div class="card card-five" onclick="openModal('KVM')">
       <div class="icon">🎥</div>
       <h2>KVM</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-five-list">
+        <li>🖥️ Ingresso video: HDMI singolo per la sorgente</li>
+        <li>📺 Uscite video: doppia uscita HDMI </li>
+        <li>🖱️ Periferiche USB: collegamento mouse e tastiera</li>
+        <li>🔘 Switch manuale: pulsante di backup se il tasto blu non risponde</li>
+      </ul>
+      
     </div>
 
     <!-- ===== CARD 6 ===== -->
-    <div class="card" onclick="openModal('RetroSmartHub')">
+    <div class="card card-six" onclick="openModal('RetroSmartHub')">
       <div class="icon">🛠️</div>
       <h2>Retro dello SmartHub</h2>
-      <p>Clicca per guardare il video</p>
+      <ul class="card-six-list">
+        <li>📽️ Cavo proiettore: HDMI output</li>
+        <li>✍️ Cavo Wacom: HDMI output</li>
+        <li>⚡ Alimentazione: cavo di corrente principale</li>
+        <li>🌐 Rete: cavo Ethernet</li>
+        <li>📷 Webcam: cavo USB con adattatore Ethernet dedicato</li>
+        <li>⌨️ Cavo USB</li>
+        <li>📺 Cavo HDMI input superiore: unico cavo nella parte alta</li>
+      </ul>
     </div>
 
     <!-- ===== CARD 7 ===== -->
