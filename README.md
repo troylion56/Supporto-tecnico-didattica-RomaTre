@@ -48,9 +48,13 @@ cd script_python
 python genera_qr.py
 ```
 
-Verrà creato il file `qrcode_formazione.png` → stampalo e usalo!  
+### QR Code e indirizzamento sito
 
-![QR Code generato](qrcode_formazione.png)
+Scansiona il QR Code oppure usa il link diretto qui sotto:
+
+![QR Code sito](qrcode_formazione.png)
+
+[Indirizzamneto sito](https://troylion56.github.io/Supporto-tecnico-didattica-RomaTre/sito/)
 
 ---
 
@@ -59,7 +63,6 @@ Verrà creato il file `qrcode_formazione.png` → stampalo e usalo!
 1. In `sito/index.html`, aggiungi una nuova card nel `<div class="grid">`:
    ```html
    <div class="card" onclick="openModal('nuovovideo')">
-     <div class="icon">📹</div>
      <h2>Nuovo Video</h2>
      <p>Clicca per guardare il video</p>
    </div>
@@ -77,7 +80,4 @@ Verrà creato il file `qrcode_formazione.png` → stampalo e usalo!
 
 ## Note tecniche
 
-- L'URL generato nel QR Code deve terminare con `/sito/` (es: `https://troylion56.github.io/Supporto-tecnico-didattica-RomaTre/sito/`) affinché carichi direttamente `index.html`.
-- I video vengono riprodotti tramite iframe con l'URL `https://drive.google.com/file/d/ID/preview`
-- Il QR code è generato con la libreria `qrcode` (moduli arrotondati, colore blu scuro)
 - Dipendenze Python: `qrcode` e `pillow` (per installare: `pip install qrcode[pil]`)
