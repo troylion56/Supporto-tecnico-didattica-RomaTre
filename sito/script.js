@@ -31,6 +31,10 @@ const videos = {
     title: 'RetroSmartHub',
     driveId: '16-o94QuNkMHXUBQXHtzA7K6q6bLrqghX'   
   },
+  lavagnaLuminosa: {
+    title: 'lavagnaLuminosa',
+    driveId: '1U3kOJAVYn2v2Kc629Frzes4jZ-6Rv1mF'   
+  },
   SmartHubNonFunzionante: {
     title: 'SmartHub Non Funzionante',
     driveId: '1mA7YknPU8NS8_XPXQ0yb-8vZQV45cT5T'   
