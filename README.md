@@ -15,26 +15,26 @@ Supporto tecnico didattica-RomaTre/
 
 ---
 
-## Passo 1 — Inserisci i tuoi video Google Drive in sito/script.js
+## Passo 1 — Inserisci i tuoi video OneDrive in sito/script.js
 
-Apri il file `sito/script.js` e trova l'oggetto `videos`:
+Per ogni video su OneDrive/SharePoint:
+
+1. Tasto destro → **Condividi** → impostazioni del collegamento → **Persone in Roma Tre**, **Può visualizzare** → **Applica**.
+2. **Copia collegamento**.
+3. In `sito/script.js` incolla il link nel campo `oneDriveUrl` del video:
 
 ```js
 const videos = {
-  SpigazioneRack: {
-    title: 'Spiegazione Rack',
-    driveId: '1DnjSaHFb66pRz6v_3JRNXFZnRKqob_ke'  // <-- metti qui l'ID
+  Rack: {
+    title: 'Rack',
+    oneDriveUrl: 'https://uniroma3-my.sharepoint.com/:v:/g/personal/...',
+    driveId: '1cJo5erQtOpxgEdi8a-3gp-uF6GoXpNlU'  // vecchio Google Drive, usato solo se oneDriveUrl è vuoto
   },
   // ... altri video
 };
 ```
 
-**Come trovare l'ID Google Drive:**  
-Apri il video su Google Drive → guarda l'URL:  
-`https://drive.google.com/file/d/` **`1ABC123xyz`** `/view`  
-La parte tra `/d/` e `/view` è l'ID (es. `1ABC123xyz`).
-
-**Importante:** per ogni video vai su Google Drive → tasto destro → **Condividi** → **Chiunque abbia il link** (Visualizzatore).
+Cliccando la card, il video si apre in una nuova scheda: serve l'accesso con l'account Roma Tre.
 
 ---
 
@@ -71,7 +71,7 @@ Scansiona il QR Code oppure usa il link diretto qui sotto:
    ```js
    nuovovideo: {
      title: 'Nuovo Video',
-     driveId: 'ID_DEL_FILE_DRIVE'
+     oneDriveUrl: 'LINK_ONEDRIVE_DEL_VIDEO'
    }
    ```
 3. Fai commit e push dei file modificati su GitHub.
